@@ -59,6 +59,7 @@ class _PantallaVasosState extends State<PantallaVasos> {
               '$_vasos',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            if (_vasos >= 8) const Text('Objetivo cumplido'),
           ],
         ),
       ),
