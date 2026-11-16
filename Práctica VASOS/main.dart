@@ -38,6 +38,14 @@ class _PantallaVasosState extends State<PantallaVasos> {
     });
   }
 
+  void _quitarVaso() {
+    if (_vasos > 0) {
+      setState(() {
+        _vasos--;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,10 +62,23 @@ class _PantallaVasosState extends State<PantallaVasos> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _anadirVaso,
-        tooltip: 'Añadir vaso',
-        child: const Icon(Icons.local_drink),
+      floatingActionButton: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          FloatingActionButton(
+            heroTag: 'quitar',
+            onPressed: _quitarVaso,
+            tooltip: 'Quitar vaso',
+            child: const Icon(Icons.remove),
+          ),
+          const SizedBox(width: 12),
+          FloatingActionButton(
+            heroTag: 'anadir',
+            onPressed: _anadirVaso,
+            tooltip: 'Añadir vaso',
+            child: const Icon(Icons.local_drink),
+          ),
+        ],
       ),
     );
   }
